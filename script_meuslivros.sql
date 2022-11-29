@@ -84,7 +84,7 @@ CREATE TABLE genero (
 -- Table autor_has_livros
 -- -----------------------------------------------------
 CREATE TABLE autor_has_livros (
-  autor_codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  autor_codigo INT,
   livros_isbn INT NOT NULL,
   PRIMARY KEY (autor_codigo, livros_isbn),
   CONSTRAINT fk_autor_has_livros_autor1
@@ -116,7 +116,7 @@ CREATE TABLE livros_has_genero (
 -- Table editora
 -- -----------------------------------------------------
 CREATE TABLE editora (
-  codigo_editora INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  codigo_editora INT,
   nome_editora VARCHAR(45) NULL,
   PRIMARY KEY (codigo_editora)
   );
@@ -177,7 +177,7 @@ VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infan
        (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
        (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
        (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
-       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Recordo'),
+       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Record'),
        (78956546218521,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
        (26654489471321,'A Revolução do bichos','George Orwell','Política','Principis');
 
@@ -214,6 +214,19 @@ VALUES (1,'Romance'),
        (9,'Clássico'),
        (10,'Autoajuda');
 
-       
+INSERT INTO editora (
+  codigo_editora,
+  nome_editora
+)
 
+VALUES (1,'Gutenberg'),
+       (2,'Vide Editora'),
+       (3,'Thomas Nelson'),
+       (4,'Central Gospel'),
+       (5,'Rocco'),
+       (6,'Intrínseca'),
+       (7,'Galera Record'),
+       (8,'Editora Arqueiro'),
+       (9,'Princípis')
+       (10,'Editora Seguinte');
        
