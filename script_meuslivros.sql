@@ -196,6 +196,24 @@ VALUES (1,'paulapimentaescritora@gmail.com','Paula Pimenta'),
        (7,'hanjenny@hotmail.com','Jenny Han'),
        (8,'sarahjmass@gmail.com','Saraj J. Mass'),
        (9,'quinnjulia@outblook.com','Julia Quinn'),
-       (10,'georgeorwell@gmail.com','Geogre Orwell'),
+       (10,'georgeorwell@gmail.com','Geogre Orwell');
+
+INSERT INTO genero (
+    idgenero,
+   nome_genero
+)
+  
+VALUES (1,'Romance'),
+       (2,'Fantasia'),
+       (3,'Política'),
+       (4,'Cristão'),
+       (5,'Romance de época'),
+       (6,'Infantojuvenil'),
+       (7,'Distopia'),
+       (8,'Não-ficção'),
+       (9,'Clássico'),
+       (10,'Autoajuda');
+
+       
 
        
