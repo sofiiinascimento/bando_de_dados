@@ -64,7 +64,7 @@ CREATE TABLE livros_has_pessoa (
 -- Table autor
 -- -----------------------------------------------------
 CREATE TABLE autor (
-  codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  codigo INT,
   email VARCHAR(45) NULL,
   nome VARCHAR(45) NULL,
   PRIMARY KEY (codigo))
@@ -73,7 +73,7 @@ CREATE TABLE autor (
 -- Table genero
 -- -----------------------------------------------------
 CREATE TABLE genero (
-  idgenero INT NOT NULL,
+  idgenero INT,
   nome_genero VARCHAR(45) NULL,
   PRIMARY KEY (idgenero)
   );
@@ -150,15 +150,15 @@ INSERT INTO pessoa (
   data_nascimento
 )
 
-VALUES (80222520884,'Carlos Duarte', 'carlosduarte@gmailcom','Brasil','Masculino','02-02-1982')
-	   (37406414285,'Pedro Ricardo Alves','pedroalvess@gmailcom', 'Brasil', 'Masculino','04-24-1991')
-	   (96352539076,'Pietra Silva','pietraa123@gmailcom', 'Brasil','França','Feminino','11-03-2000')
-	   (07868915722,'Nicole Freutas','freitasnicole@gmailcom','Portugal','Feminino','02-23-2000')
-	   (30025017942,'Lucas Elias Novaes','lucasnovaes@gmail.com','França','Masculino','03-13-1998')
-	   (80008486352,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','04-21-1989')
-	   (58639241449,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','06-25-1998')
-	   (46683941220,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','05-25-2003')
-       (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997')
+VALUES (80222520884,'Carlos Duarte', 'carlosduarte@gmailcom','Brasil','Masculino','02-02-1982'),
+	   (37406414285,'Pedro Ricardo Alves','pedroalvess@gmailcom', 'Brasil', 'Masculino','04-24-1991'),
+	   (96352539076,'Pietra Silva','pietraa123@gmailcom', 'Brasil','França','Feminino','11-03-2000'),
+	   (07868915722,'Nicole Freutas','freitasnicole@gmailcom','Portugal','Feminino','02-23-2000'),
+	   (30025017942,'Lucas Elias Novaes','lucasnovaes@gmail.com','França','Masculino','03-13-1998'),
+	   (80008486352,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','04-21-1989'),
+	   (58639241449,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','06-25-1998'),
+	   (46683941220,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','05-25-2003'),
+       (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
        (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004')
 );
 
@@ -170,16 +170,32 @@ INSERT INTO livros (
     editora
 )
 
-VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg')
-	   (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
-       (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson')
+VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg'),
+	     (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
+       (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson'),
        (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel')
-       (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco')
-       (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco')
-       (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica')
-       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Recordo')
-       (78956546218521,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro')
-       (26654489471321,'A Revolução do bichos','George Orwell','Política','Principis')
-       );
+       (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
+       (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
+       (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
+       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Recordo'),
+       (78956546218521,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
+       (26654489471321,'A Revolução do bichos','George Orwell','Política','Principis');
+
+INSERT INTO autor (
+    codigo,
+    email,
+    nome
+)
+
+VALUES (1,'paulapimentaescritora@gmail.com','Paula Pimenta'),
+       (2,'anacarolinecampagnolo@gmail.com','Ana Caroline Campagnolo'),
+       (3,'witwytzky.fernanda@gmail.com','Fernanda Witwytzky'),
+       (4,'nikolasferreira@hotmail.com','Nikolas Ferreira'),
+       (5,'suzannecollins@outblook.com','Suzanne Collins'),
+       (6,'jkrowliing@hotmail.com','J.K. Rowling'),
+       (7,'hanjenny@hotmail.com','Jenny Han'),
+       (8,'sarahjmass@gmail.com','Saraj J. Mass'),
+       (9,'quinnjulia@outblook.com','Julia Quinn'),
+       (10,'georgeorwell@gmail.com','Geogre Orwell'),
 
        
