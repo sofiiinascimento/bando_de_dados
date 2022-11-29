@@ -33,6 +33,7 @@ CREATE TABLE livros (
   titulo VARCHAR(200) NOT NULL,
   autor VARCHAR(45) NOT NULL,
   tipo_obra VARCHAR(45) NOT NULL,
+  editora VARCHAR(45) NOT NULL,
   PRIMARY KEY (isbn));
 
 
@@ -169,16 +170,16 @@ INSERT INTO livros (
     editora
 )
 
-VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil')
-	   (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política')
-       (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão')
-       (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão')
-       (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia')
-       (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia')
-       (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance')
-       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia')
-       (78956546218521,'O duque e eu','Julia Quinn','Romance de época')
-       (26654489471321,'A Revolução do bichos','George Orwell','Política')
+VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg')
+	   (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
+       (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson')
+       (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel')
+       (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco')
+       (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco')
+       (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica')
+       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Recordo')
+       (78956546218521,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro')
+       (26654489471321,'A Revolução do bichos','George Orwell','Política','Principis')
        );
 
        
