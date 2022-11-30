@@ -300,5 +300,18 @@ SELECT * FROM genero ORDER BY idgenero;
 SELECT * FROM editora ORDER BY codigo_editora;
 
 
+SELECT * FROM pessoa WHERE cpf = 20395268117;
+
+SELECT * FROM livros WHERE isbn = 9632547813654;
+
+SELECT * FROM autor WHERE codigo = 5;
+
+SELECT * FROM genero WHERE idgenero = 3;
+
+SELECT * FROM editora WHERE isbn = 8;
+
+
+
+
 
        
