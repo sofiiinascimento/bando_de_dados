@@ -64,7 +64,7 @@ CREATE TABLE livros_has_pessoa (
 -- Table autor
 -- -----------------------------------------------------
 CREATE TABLE autor (
-  codigo INT,
+  codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   email VARCHAR(45) NULL,
   nome VARCHAR(45) NULL,
   PRIMARY KEY (codigo))
@@ -73,7 +73,7 @@ CREATE TABLE autor (
 -- Table genero
 -- -----------------------------------------------------
 CREATE TABLE genero (
-  idgenero INT,
+  idgenero INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nome_genero VARCHAR(45) NULL,
   PRIMARY KEY (idgenero)
   );
@@ -84,7 +84,7 @@ CREATE TABLE genero (
 -- Table autor_has_livros
 -- -----------------------------------------------------
 CREATE TABLE autor_has_livros (
-  autor_codigo INT,
+  autor_codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   livros_isbn INT NOT NULL,
   PRIMARY KEY (autor_codigo, livros_isbn),
   CONSTRAINT fk_autor_has_livros_autor1
@@ -116,7 +116,7 @@ CREATE TABLE livros_has_genero (
 -- Table editora
 -- -----------------------------------------------------
 CREATE TABLE editora (
-  codigo_editora INT,
+  codigo_editora INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nome_editora VARCHAR(45) NULL,
   PRIMARY KEY (codigo_editora)
   );
@@ -158,9 +158,8 @@ VALUES (80222520884,'Carlos Duarte', 'carlosduarte@gmailcom','Brasil','Masculino
 	   (80008486352,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','04-21-1989'),
 	   (58639241449,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','06-25-1998'),
 	   (46683941220,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','05-25-2003'),
-       (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
-       (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004')
-);
+     (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
+     (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004');
 
 INSERT INTO livros (
 	isbn,
@@ -175,11 +174,11 @@ VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infan
        (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson'),
        (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel')
        (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
-       (12365489741212,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
-       (23654897412365,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
-       (54698742236119,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Record'),
-       (78956546218521,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
-       (26654489471321,'A Revolução do bichos','George Orwell','Política','Principis');
+       (1236548974121,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
+       (2365489741236,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
+       (5469874223611,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Record'),
+       (7895654621852,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
+       (2665448947132,'A Revolução do bichos','George Orwell','Política','Principis');
 
 INSERT INTO autor (
     codigo,
@@ -187,46 +186,107 @@ INSERT INTO autor (
     nome
 )
 
-VALUES (1,'paulapimentaescritora@gmail.com','Paula Pimenta'),
-       (2,'anacarolinecampagnolo@gmail.com','Ana Caroline Campagnolo'),
-       (3,'witwytzky.fernanda@gmail.com','Fernanda Witwytzky'),
-       (4,'nikolasferreira@hotmail.com','Nikolas Ferreira'),
-       (5,'suzannecollins@outblook.com','Suzanne Collins'),
-       (6,'jkrowliing@hotmail.com','J.K. Rowling'),
-       (7,'hanjenny@hotmail.com','Jenny Han'),
-       (8,'sarahjmass@gmail.com','Saraj J. Mass'),
-       (9,'quinnjulia@outblook.com','Julia Quinn'),
-       (10,'georgeorwell@gmail.com','Geogre Orwell');
+VALUES ('paulapimentaescritora@gmail.com','Paula Pimenta'),
+       ('anacarolinecampagnolo@gmail.com','Ana Caroline Campagnolo'),
+       ('witwytzky.fernanda@gmail.com','Fernanda Witwytzky'),
+       ('nikolasferreira@hotmail.com','Nikolas Ferreira'),
+       ('suzannecollins@outblook.com','Suzanne Collins'),
+       ('jkrowliing@hotmail.com','J.K. Rowling'),
+       ('hanjenny@hotmail.com','Jenny Han'),
+       ('sarahjmass@gmail.com','Saraj J. Mass'),
+       ('quinnjulia@outblook.com','Julia Quinn'),
+       ('georgeorwell@gmail.com','Geogre Orwell');
 
 INSERT INTO genero (
     idgenero,
    nome_genero
 )
   
-VALUES (1,'Romance'),
-       (2,'Fantasia'),
-       (3,'Política'),
-       (4,'Cristão'),
-       (5,'Romance de época'),
-       (6,'Infantojuvenil'),
-       (7,'Distopia'),
-       (8,'Não-ficção'),
-       (9,'Clássico'),
-       (10,'Autoajuda');
+VALUES ('Romance'),
+       ('Fantasia'),
+       ('Política'),
+       ('Cristão'),
+       ('Romance de época'),
+       ('Infantojuvenil'),
+       ('Distopia'),
+       ('Não-ficção'),
+       ('Clássico'),
+       ('Autoajuda');
 
 INSERT INTO editora (
   codigo_editora,
   nome_editora
 )
 
-VALUES (1,'Gutenberg'),
-       (2,'Vide Editora'),
-       (3,'Thomas Nelson'),
-       (4,'Central Gospel'),
-       (5,'Rocco'),
-       (6,'Intrínseca'),
-       (7,'Galera Record'),
-       (8,'Editora Arqueiro'),
-       (9,'Princípis')
-       (10,'Editora Seguinte');
+VALUES ('Gutenberg'),
+       ('Vide Editora'),
+       ('Thomas Nelson'),
+       ('Central Gospel'),
+       ('Rocco'),
+       ('Intrínseca'),
+       ('Galera Record'),
+       ('Editora Arqueiro'),
+       ('Princípis')
+       ('Editora Seguinte');
+
+UPDATE pessoa SET nome = 'Carlinhos Maia' WHERE cpf = 80222520884;
+UPDATE pessoa SET nome ='Sofia Nascimento' WHERE cpf = 46683941220;
+UPDATE pessoa SET nome ='Amanda da Silva' WHERE cpf = 20395268117;
+UPDATE pessoa SET nome ='João Augusto' WHERE cpf = 30025017942;
+UPDATE pessoa SET nome ='Noah Urrea'WHERE cpf = 158639241449;
+
+UPDATE livros SET titulo = 'Fazendo Meu Filme' WHERE isbn = 1569874326987;
+UPDATE livros SET titulo ='Guia de Bolso Contra Mentiras Feministas' WHERE isbn = 6559874632158;
+UPDATE livros SET titulo ='As Primeiras Quatro Estações' WHERE isbn = 9632547813654;
+UPDATE livros SET titulo ='Em Chamas' WHERE isbn = 2365489517585;
+UPDATE livros SET titulo ='Corte de Névoa e Fúria'WHERE isbn = 5469874223611;
+
+UPDATE autor SET email = 'pimentapaula@hotmail' WHERE codigo = 1;
+UPDATE autor SET email ='anacampagnolo@alesc.com.br' WHERE codigo = 5;
+UPDATE autor SET email ='ferreiranikolas@brasil.com.br' WHERE codigo = 8;
+UPDATE autor SET email ='jennyhan@gmail.com' WHERE codigo = 4;
+UPDATE autor SET email ='sarahjmass@outblook'WHERE codigo = 10;
+
+UPDATE genero SET nome_genero = 'Distopia' WHERE idgenero = 4;
+UPDATE genero SET nome_genero ='Romance' WHERE idgenero = 9;
+UPDATE genero SET nome_genero ='Fantasia' WHERE idgenero = 3;
+UPDATE genero SET nome_genero ='Cristão' WHERE idgenero = 6;
+UPDATE genero SET nome_genero ='Política'WHERE idgenero = 10;
+
+UPDATE editora SET nome_editora = 'Editora Seguinte' WHERE codigo_editora = 1;
+UPDATE editora SET nome_editora ='Princípis' WHERE codigo_editora = 5;
+UPDATE editora SET nome_editora ='Thomas Nelson' WHERE codigo_editora = 9;
+UPDATE editora SET nome_editora ='Galera Record' WHERE codigo_editora = 3;
+UPDATE editora SET nome_editora ='Rocco'WHERE codigo_editora = 7;
+
+DELETE FROM pessoa WHERE cpf = 30025017942;
+DELETE FROM pessoa WHERE cpf = 76899799120;
+DELETE FROM pessoa WHERE cpf = 20395268117;
+DELETE FROM pessoa WHERE cpf = 96352539076;
+DELETE FROM pessoa WHERE cpf = 46683941220;
+
+DELETE FROM livros WHERE isbn = 1569874326987;
+DELETE FROM livros WHERE isbn = 1236548974121;
+DELETE FROM livros WHERE isbn = 2665448947132;
+DELETE FROM livros WHERE isbn = 5469874223611;
+DELETE FROM livros WHERE isbn = 2365489741236;
+
+DELETE FROM autor WHERE codigo = 4;
+DELETE FROM autor WHERE codigo = 8;
+DELETE FROM autor WHERE codigo = 7;
+DELETE FROM autor WHERE codigo = 3;
+DELETE FROM autor WHERE codigo = 5;
+
+DELETE FROM genero WHERE idgenero = 1;
+DELETE FROM genero WHERE idgenero = 5;
+DELETE FROM genero WHERE idgenero = 6;
+DELETE FROM genero WHERE idgenero = 2;
+DELETE FROM genero WHERE idgenero = 10;
+
+DELETE FROM editora WHERE codigo_editora = 1;
+DELETE FROM editora WHERE codigo_editora = 2;
+DELETE FROM editora WHERE codigo_editora = 6;
+DELETE FROM editora WHERE codigo_editora = 7;
+DELETE FROM editora WHERE codigo_editora = 9;
+
        
