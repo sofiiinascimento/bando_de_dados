@@ -10,8 +10,13 @@
 -- -----------------------------------------------------
 -- Schema 
 -- -----------------------------------------------------
+
 CREATE DATABASE my_books;
 USE my_books;
+
+
+
+
 -- -----------------------------------------------------
 -- Table pessoa
 -- -----------------------------------------------------
@@ -20,7 +25,7 @@ CREATE TABLE pessoa (
   nome VARCHAR(45) NOT NULL,
   email VARCHAR(45) NOT NULL,
   nacionalidade VARCHAR(45) NOT NULL,
-  sexo VARCHAR(8) NOT NULL,
+  sexo VARCHAR(9) NOT NULL,
   data_nascimento INT NOT NULL,
   PRIMARY KEY (cpf)
   );
@@ -51,10 +56,7 @@ CREATE TABLE livros_has_pessoa (
   PRIMARY KEY (isbn, pessoa_cpf),
   CONSTRAINT fk_livros_has_pessoa_livros
     FOREIGN KEY (isbn)
-    REFERENCES livros (isbn)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_livros_has_pessoa_pessoa1
+    REFERENCES livros (isbn),
     FOREIGN KEY (pessoa_cpf)
     REFERENCES pessoa (cpf)
     );
@@ -147,16 +149,16 @@ INSERT INTO pessoa (
   data_nascimento
 )
 
-VALUES (80222520884,'Carlos Duarte', 'carlosduarte@gmailcom','Brasil','Masculino','02-02-1982'),
-	   (37406414285,'Pedro Ricardo Alves','pedroalvess@gmailcom', 'Brasil', 'Masculino','04-24-1991'),
-	   (96352539076,'Pietra Silva','pietraa123@gmailcom', 'Brasil','França','Feminino','11-03-2000'),
-	   (07868915722,'Nicole Freutas','freitasnicole@gmailcom','Portugal','Feminino','02-23-2000'),
-	   (30025017942,'Lucas Elias Novaes','lucasnovaes@gmail.com','França','Masculino','03-13-1998'),
-	   (80008486352,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','04-21-1989'),
-	   (58639241449,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','06-25-1998'),
-	   (46683941220,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','05-25-2003'),
-       (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
-       (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004');
+VALUES (80222,'Carlos Duarte', 'carlosduarte@gmail.com','Brasil','Masculino','1982-02-02'),
+	   (37406,'Pedro Ricardo Alves','pedroalvess@gmail.com', 'Brasil', 'Masculino','1991-04-24'),
+	   (96352,'Pietra Silva','pietraa123@gmailcom', 'Brasil','Feminino','2000-11-25'),
+	   (07868,'Nicole Freutas','freitasnicole@gmail.com','Portugal','Feminino','2000-02-23'),
+	   (30025,'Lucas Elias Novaes','lucasnovaes@gmail.com','França','Masculino','1998-03-13'),
+	   (80008,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','1989-04-21'),
+	   (58639,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','1998-06-25'),
+	   (46683,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','2003-05-25'),
+       (76899,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','1997-01-07'),
+       (20395,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','2004-08-10');
 
 INSERT INTO livros (
 	isbn,
@@ -226,11 +228,11 @@ VALUES ('Gutenberg'),
        ('Princípis'),
        ('Editora Seguinte');
 
-UPDATE pessoa SET nome = 'Carlinhos Maia' WHERE cpf = 80222520884;
-UPDATE pessoa SET nome ='Sofia Nascimento' WHERE cpf = 46683941220;
-UPDATE pessoa SET nome ='Amanda da Silva' WHERE cpf = 20395268117;
-UPDATE pessoa SET nome ='João Augusto' WHERE cpf = 30025017942;
-UPDATE pessoa SET nome ='Noah Urrea'WHERE cpf = 158639241449;
+UPDATE pessoa SET nome = 'Carlinhos Maia' WHERE cpf = 8022;
+UPDATE pessoa SET nome ='Sofia Nascimento' WHERE cpf = 46683;
+UPDATE pessoa SET nome ='Amanda da Silva' WHERE cpf = 20395;
+UPDATE pessoa SET nome ='João Augusto' WHERE cpf = 30025;
+UPDATE pessoa SET nome ='Noah Urrea'WHERE cpf = 15863;
 
 UPDATE livros SET titulo = 'Fazendo Meu Filme' WHERE isbn = 1569874326987;
 UPDATE livros SET titulo ='Guia de Bolso Contra Mentiras Feministas' WHERE isbn = 6559874632158;
@@ -256,11 +258,11 @@ UPDATE editora SET nome_editora ='Thomas Nelson' WHERE codigo_editora = 9;
 UPDATE editora SET nome_editora ='Galera Record' WHERE codigo_editora = 3;
 UPDATE editora SET nome_editora ='Rocco'WHERE codigo_editora = 7;
 
-DELETE FROM pessoa WHERE cpf = 30025017942;
-DELETE FROM pessoa WHERE cpf = 76899799120;
-DELETE FROM pessoa WHERE cpf = 20395268117;
-DELETE FROM pessoa WHERE cpf = 96352539076;
-DELETE FROM pessoa WHERE cpf = 46683941220;
+DELETE FROM pessoa WHERE cpf = 30025;
+DELETE FROM pessoa WHERE cpf = 76899;
+DELETE FROM pessoa WHERE cpf = 20395;
+DELETE FROM pessoa WHERE cpf = 96352;
+DELETE FROM pessoa WHERE cpf = 46683;
 
 DELETE FROM livros WHERE isbn = 1569874326987;
 DELETE FROM livros WHERE isbn = 1236548974121;
@@ -297,7 +299,7 @@ SELECT * FROM genero ORDER BY idgenero;
 SELECT * FROM editora ORDER BY codigo_editora;
 
 
-SELECT * FROM pessoa WHERE cpf = 20395268117;
+SELECT * FROM pessoa WHERE cpf = 20395;
 
 SELECT * FROM livros WHERE isbn = 9632547813654;
 
@@ -307,6 +309,14 @@ SELECT * FROM genero WHERE idgenero = 3;
 
 SELECT * FROM editora WHERE isbn = 8;
 
-SELECT pessoa.cpf, livros.autor FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.isbn;
+SELECT pessoa.cpf, livros.isbn FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.isbn;
 
-DROP DATABASE my_books;
+SELECT livros.isbn, autor.codigo FROM livros INNER JOIN autor ON livros.isbn = autor.codigo;
+
+SELECT autor.codigo, editora.codigo_editora FROM autor LEFT JOIN editora ON autor.codigo = editora.codigo_editora;
+
+SELECT editora.codigo_editora, genero.idgenero FROM editora INNER JOIN genero ON editora.codigo_editora = genero.idgenero;
+
+SELECT genero.idgenero, livro.isbn FROM genero RIGHT JOIN livro ON genero.idgenero = livro.isbn;
+
+DROP DATABASE my_book;
