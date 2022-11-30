@@ -15,8 +15,6 @@ CREATE DATABASE my_books;
 USE my_books;
 
 
-
-
 -- -----------------------------------------------------
 -- Table pessoa
 -- -----------------------------------------------------
@@ -26,7 +24,7 @@ CREATE TABLE pessoa (
   email VARCHAR(45) NOT NULL,
   nacionalidade VARCHAR(45) NOT NULL,
   sexo VARCHAR(9) NOT NULL,
-  data_nascimento INT NOT NULL,
+  data_nascimento DATETIME NOT NULL,
   PRIMARY KEY (cpf)
   );
 
@@ -168,16 +166,16 @@ INSERT INTO livros (
     editora
 )
 
-VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg'),
-	     (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
-       (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson'),
-       (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel'),
-       (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
-       (1236548974121,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
-       (2365489741236,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
-       (5469874223611,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Record'),
-       (7895654621852,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
-       (2665448947132,'A Revolução do bichos','George Orwell','Política','Principis');
+VALUES (156987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg'),
+	   (655987,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
+       (963254,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson'),
+       (856932,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel'),
+       (235478,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
+       (123654,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
+       (236548,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
+       (546987,'Corte de Espinhos e Rosas','Sarah J. Mass','Fantasia','Galera Record'),
+       (789565,'O duque e eu','Julia Quinn','Romance de época','Editora Arqueiro'),
+       (266544,'A Revolução do bichos','George Orwell','Política','Principis');
 
 INSERT INTO autor (
     codigo,
@@ -234,11 +232,11 @@ UPDATE pessoa SET nome ='Amanda da Silva' WHERE cpf = 20395;
 UPDATE pessoa SET nome ='João Augusto' WHERE cpf = 30025;
 UPDATE pessoa SET nome ='Noah Urrea'WHERE cpf = 15863;
 
-UPDATE livros SET titulo = 'Fazendo Meu Filme' WHERE isbn = 1569874326987;
-UPDATE livros SET titulo ='Guia de Bolso Contra Mentiras Feministas' WHERE isbn = 6559874632158;
-UPDATE livros SET titulo ='As Primeiras Quatro Estações' WHERE isbn = 9632547813654;
-UPDATE livros SET titulo ='Em Chamas' WHERE isbn = 2365489517585;
-UPDATE livros SET titulo ='Corte de Névoa e Fúria'WHERE isbn = 5469874223611;
+UPDATE livros SET titulo = 'Fazendo Meu Filme' WHERE isbn = 156987;
+UPDATE livros SET titulo ='Guia de Bolso Contra Mentiras Feministas' WHERE isbn = 655987;
+UPDATE livros SET titulo ='As Primeiras Quatro Estações' WHERE isbn = 963254;
+UPDATE livros SET titulo ='Em Chamas' WHERE isbn = 236548;
+UPDATE livros SET titulo ='Corte de Névoa e Fúria'WHERE isbn = 546987;
 
 UPDATE autor SET email = 'pimentapaula@hotmail' WHERE codigo = 1;
 UPDATE autor SET email ='anacampagnolo@alesc.com.br' WHERE codigo = 5;
@@ -264,11 +262,11 @@ DELETE FROM pessoa WHERE cpf = 20395;
 DELETE FROM pessoa WHERE cpf = 96352;
 DELETE FROM pessoa WHERE cpf = 46683;
 
-DELETE FROM livros WHERE isbn = 1569874326987;
-DELETE FROM livros WHERE isbn = 1236548974121;
-DELETE FROM livros WHERE isbn = 2665448947132;
-DELETE FROM livros WHERE isbn = 5469874223611;
-DELETE FROM livros WHERE isbn = 2365489741236;
+DELETE FROM livros WHERE isbn = 156987;
+DELETE FROM livros WHERE isbn = 123654;
+DELETE FROM livros WHERE isbn = 266544;
+DELETE FROM livros WHERE isbn = 546987;
+DELETE FROM livros WHERE isbn = 236548;
 
 DELETE FROM autor WHERE codigo = 4;
 DELETE FROM autor WHERE codigo = 8;
@@ -301,7 +299,7 @@ SELECT * FROM editora ORDER BY codigo_editora;
 
 SELECT * FROM pessoa WHERE cpf = 20395;
 
-SELECT * FROM livros WHERE isbn = 9632547813654;
+SELECT * FROM livros WHERE isbn = 963254;
 
 SELECT * FROM autor WHERE codigo = 5;
 
