@@ -289,4 +289,16 @@ DELETE FROM editora WHERE codigo_editora = 6;
 DELETE FROM editora WHERE codigo_editora = 7;
 DELETE FROM editora WHERE codigo_editora = 9;
 
+SELECT * FROM pessoa ORDER BY cpf;
+
+SELECT * FROM livros ORDER BY isbn;
+
+SELECT * FROM autor ORDER BY codigo;
+
+SELECT * FROM genero ORDER BY idgenero;
+
+SELECT * FROM editora ORDER BY codigo_editora;
+
+
+
        
