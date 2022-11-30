@@ -10,8 +10,8 @@
 -- -----------------------------------------------------
 -- Schema 
 -- -----------------------------------------------------
-CREATE DATABASE meus_livros ;
-USE meus_livros;
+CREATE DATABASE my_books;
+USE my_books;
 -- -----------------------------------------------------
 -- Table pessoa
 -- -----------------------------------------------------
@@ -66,16 +66,15 @@ CREATE TABLE livros_has_pessoa (
 CREATE TABLE autor (
   codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   email VARCHAR(45) NULL,
-  nome VARCHAR(45) NULL,
-  PRIMARY KEY (codigo))
+  nome VARCHAR(45) NULL
+  );
 
 -- -----------------------------------------------------
 -- Table genero
 -- -----------------------------------------------------
 CREATE TABLE genero (
   idgenero INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nome_genero VARCHAR(45) NULL,
-  PRIMARY KEY (idgenero)
+  nome_genero VARCHAR(45) NULL
   );
 
 
@@ -86,7 +85,6 @@ CREATE TABLE genero (
 CREATE TABLE autor_has_livros (
   autor_codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   livros_isbn INT NOT NULL,
-  PRIMARY KEY (autor_codigo, livros_isbn),
   CONSTRAINT fk_autor_has_livros_autor1
     FOREIGN KEY (autor_codigo)
     REFERENCES autor (codigo),
@@ -117,8 +115,7 @@ CREATE TABLE livros_has_genero (
 -- -----------------------------------------------------
 CREATE TABLE editora (
   codigo_editora INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nome_editora VARCHAR(45) NULL,
-  PRIMARY KEY (codigo_editora)
+  nome_editora VARCHAR(45) NULL
   );
 
 
@@ -158,8 +155,8 @@ VALUES (80222520884,'Carlos Duarte', 'carlosduarte@gmailcom','Brasil','Masculino
 	   (80008486352,'Augusto Almeida','augusto89@gmail.com','Brasil','Masculino','04-21-1989'),
 	   (58639241449,'Claudio Corte Real','reiclaudio2gmail.com','Inglaterra','Masculino','06-25-1998'),
 	   (46683941220,'Fernanda Caldeira','fernandinha@gmail.com','Brasil','Feminino','05-25-2003'),
-     (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
-     (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004');
+       (76899799120,'Kamily Freitas','kamilyfreitas@gmail.com','Argentina','Feminino','01-07-1997'),
+       (20395268117,'Stefany Calina','stefanyameriacan@gmail.com','Estados Unidos','Feminino','08-10-2004');
 
 INSERT INTO livros (
 	isbn,
@@ -172,7 +169,7 @@ INSERT INTO livros (
 VALUES (1569874326987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuvenil','Gutenberg'),
 	     (6559874632158,'Feminismo: Perversão e Subversão','Ana Caroline Camapgnolo','Política','Vide Editorial'),
        (9632547813654,'Enquanto Isso','Fernanda Witwytzky','Cristão','Thomas Nelson'),
-       (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel')
+       (8569321456987,'O Cristão e a Política','Nikolas Ferreira','Cristão','Central Gospel'),
        (2365489517585,'Jogos Vozares','Suzanne Collins','Distopia','Rocco'),
        (1236548974121,'Harry Potter e a Pedra Filosofal','J.K. Rowling','Fantasia','Rocco'),
        (2365489741236,'Para Todos os Garotos que Já Amei','Jenny Han','Romance','Intrínsica'),
@@ -226,7 +223,7 @@ VALUES ('Gutenberg'),
        ('Intrínseca'),
        ('Galera Record'),
        ('Editora Arqueiro'),
-       ('Princípis')
+       ('Princípis'),
        ('Editora Seguinte');
 
 UPDATE pessoa SET nome = 'Carlinhos Maia' WHERE cpf = 80222520884;
@@ -310,8 +307,6 @@ SELECT * FROM genero WHERE idgenero = 3;
 
 SELECT * FROM editora WHERE isbn = 8;
 
-SELECT pessoa.cpf, livros.autor FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.autor;
+SELECT pessoa.cpf, livros.autor FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.isbn;
 
-
-
-       
+DROP DATABASE my_books;
