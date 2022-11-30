@@ -65,8 +65,8 @@ CREATE TABLE livros_has_pessoa (
 -- -----------------------------------------------------
 CREATE TABLE autor (
   codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  email VARCHAR(45) NULL,
-  nome VARCHAR(45) NULL
+  email VARCHAR(100) NULL,
+  nome VARCHAR(100) NULL
   );
 
 -- -----------------------------------------------------
@@ -178,11 +178,9 @@ VALUES (156987,'Minha Vida Fora de Série','Paula Pimenta','Romance Infantojuven
        (266544,'A Revolução do bichos','George Orwell','Política','Principis');
 
 INSERT INTO autor (
-    codigo,
     email,
     nome
 )
-
 VALUES ('paulapimentaescritora@gmail.com','Paula Pimenta'),
        ('anacarolinecampagnolo@gmail.com','Ana Caroline Campagnolo'),
        ('witwytzky.fernanda@gmail.com','Fernanda Witwytzky'),
@@ -195,7 +193,6 @@ VALUES ('paulapimentaescritora@gmail.com','Paula Pimenta'),
        ('georgeorwell@gmail.com','Geogre Orwell');
 
 INSERT INTO genero (
-    idgenero,
    nome_genero
 )
   
@@ -211,7 +208,6 @@ VALUES ('Romance'),
        ('Autoajuda');
 
 INSERT INTO editora (
-  codigo_editora,
   nome_editora
 )
 
@@ -305,7 +301,7 @@ SELECT * FROM autor WHERE codigo = 5;
 
 SELECT * FROM genero WHERE idgenero = 3;
 
-SELECT * FROM editora WHERE isbn = 8;
+SELECT * FROM editora WHERE codigo_editora = 8;
 
 SELECT pessoa.cpf, livros.isbn FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.isbn;
 
@@ -315,6 +311,6 @@ SELECT autor.codigo, editora.codigo_editora FROM autor LEFT JOIN editora ON auto
 
 SELECT editora.codigo_editora, genero.idgenero FROM editora INNER JOIN genero ON editora.codigo_editora = genero.idgenero;
 
-SELECT genero.idgenero, livro.isbn FROM genero RIGHT JOIN livro ON genero.idgenero = livro.isbn;
+SELECT genero.idgenero, autor.codigo FROM genero INNER JOIN autor ON genero.idgenero = autor.codigo;
 
-DROP DATABASE my_book;
+-- DROP DATABASE my_books;
