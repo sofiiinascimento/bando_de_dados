@@ -310,7 +310,7 @@ SELECT * FROM genero WHERE idgenero = 3;
 
 SELECT * FROM editora WHERE isbn = 8;
 
-
+SELECT pessoa.cpf, livros.autor FROM pessoa RIGHT JOIN livros ON pessoa.cpf = livros.autor;
 
 
 
